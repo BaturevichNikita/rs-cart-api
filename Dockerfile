@@ -9,7 +9,6 @@ FROM node:15.3.0-alpine3.10 as production
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --only=production
-COPY . .
 COPY --from=development /build/dist ./dist
 EXPOSE 4000
 CMD ["node", "dist/main"]
